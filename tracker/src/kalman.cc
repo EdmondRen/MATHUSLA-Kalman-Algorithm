@@ -514,6 +514,11 @@ void KalmanFilter::Q_update(double dy, double a, double b, double c)
   sigma_ms /= par_handler->par_map["p"];
 
   Q = Q * std::pow(sigma_ms, 2); // Scattering contribution to process noise
+  
+  // **************************
+  // Force Q to be 0
+  // **************************
+  Q = Q*0;
 
 }
 
